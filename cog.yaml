@@ -1,0 +1,21 @@
+build:
+  python_version: "3.12" # Updated Python version
+  gpu: true
+  cuda: "12.4"
+  system_packages:
+    - libgl1-mesa-glx
+  python_packages:
+    - torch
+    - torchvision
+    - opencv-python
+    - matplotlib
+    - huggingface_hub
+    - timm
+    - yapf
+    - addict
+    - diffusers
+    - safetensors
+    - omegaconf
+    - tqdm
+    - xformers
+predict: "predict.py:Predictor"
