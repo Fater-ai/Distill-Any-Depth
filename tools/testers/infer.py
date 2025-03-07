@@ -8,7 +8,6 @@ import numpy as np
 import torch
 from PIL import Image
 import cv2
-from omegaconf import OmegaConf
 from torch.utils.data import DataLoader
 from tqdm.auto import tqdm
 from torchvision.transforms import Compose
@@ -130,7 +129,7 @@ def main(args, num_gpus):
     # Define image transformation
     resize_h, resize_w = args.processing_res, args.processing_res
     transform = Compose([
-        Resize(resize_w, resize_h, resize_target=False, keep_aspect_ratio=False, ensure_multiple_of=14, resize_method='lower_bound', image_interpolation_method=cv2.INTER_CUBIC),
+        Resize(resize_w, resize_h, resize_target=True, keep_aspect_ratio=False, ensure_multiple_of=14, resize_method='lower_bound', image_interpolation_method=cv2.INTER_CUBIC),
         NormalizeImage(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
         PrepareForNet()
     ])

@@ -1,0 +1,13 @@
+torch
+torchvision
+opencv-python
+matplotlib
+huggingface_hub
+timm
+yapf
+addict
+diffusers
+safetensors
+detectron2
+omegaconf
+tqdm

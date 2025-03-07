@@ -316,10 +316,10 @@ class DepthAnything(nn.Module, PyTorchModelHubMixin):
         use_clstoken=False, 
         # localhub=None
         use_registers=False,
-        max_depth=1.0,
+        max_depth=15.0,
         mode='disparity',
         num_depth_regressor_anchor=512,
-        depth_normalize=(0.1, 150),
+        depth_normalize=(10, 20),
         pretrain_type='dinov2', # sam, imagenet
         del_mask_token=True,
     ):
@@ -328,6 +328,9 @@ class DepthAnything(nn.Module, PyTorchModelHubMixin):
         self.pretrain_type = pretrain_type
         self.max_depth = max_depth
         self.mode = mode
+
+        print(max_depth)
+        print(depth_normalize)
 
         assert encoder in ['vits', 'vitb', 'vitl', "vitg"]
 
