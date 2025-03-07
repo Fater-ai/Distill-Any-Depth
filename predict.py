@@ -14,7 +14,6 @@ from torchvision.transforms import Compose
 from distillanydepth.midas.transforms import Resize, NormalizeImage, PrepareForNet
 from distillanydepth.modeling.archs.dam.dam import DepthAnything
 from distillanydepth.depth_anything_v2.dpt import DepthAnythingV2
-from distillanydepth.utils.image_util import chw2hwc, colorize_depth_maps
 from safetensors.torch import load_file
 
 class Predictor(BasePredictor):
@@ -29,6 +28,7 @@ class Predictor(BasePredictor):
                 out_channels=[256, 512, 1024, 1024],
                 use_bn=False,
                 use_clstoken=False,
+                max_depth=150.0,
                 mode='metric_depth',
                 pretrain_type='dinov2',
                 del_mask_token=False
